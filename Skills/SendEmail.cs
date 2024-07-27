@@ -17,15 +17,15 @@ public class SendEmail
     )
     {
         MailMessage mail = new MailMessage();
-        mail.From = new MailAddress("askrighassem@gmail.com");
+        mail.From = new MailAddress("");
         mail.To.Add(recipientEmail);
         mail.Subject = subject;
         mail.Body = body;
-        
-        SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+
+        SmtpClient smtpClient = new SmtpClient("")
         {
             Port = 587,
-            Credentials = new NetworkCredential("askrighassem@gmail.com", "yzye rlnf njhr ocvz"),
+            Credentials = new NetworkCredential("", ""),
             EnableSsl = true
         };
 

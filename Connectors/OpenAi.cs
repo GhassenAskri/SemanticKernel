@@ -13,7 +13,7 @@ public class OpenAi
     {
         ChatCompletion = new(
             modelId: "gpt-4o",
-            apiKey: "sk-None-I4QK0mJurIFQJt3Aq2IXT3BlbkFJ2d9GHFqqphDANZcOY2Ix"
+            apiKey: ""
         );
     }
 

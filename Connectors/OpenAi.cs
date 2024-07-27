@@ -12,7 +12,7 @@ public class OpenAi
     public OpenAi()
     {
         ChatCompletion = new(
-            modelId: "gpt-4o",
+            modelId: "",
             apiKey: ""
         );
     }

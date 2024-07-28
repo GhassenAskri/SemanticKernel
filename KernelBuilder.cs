@@ -5,7 +5,7 @@ namespace EmailAgent;
 
 public static class KernelBuilder
 {
-    public static readonly IKernelBuilder _kernelBuilder = Kernel.CreateBuilder();
+    private static readonly IKernelBuilder _kernelBuilder = Kernel.CreateBuilder();
 
     public static Kernel BuildWithSkill<T>(T skill) where T : class
     {

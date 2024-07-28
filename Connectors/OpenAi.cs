@@ -1,4 +1,4 @@
-using EmailAgent.Contracts;
+using EmailAgent.Settings;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Connectors.OpenAI;

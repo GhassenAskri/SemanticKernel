@@ -1,4 +1,4 @@
-namespace EmailAgent.Contracts;
+namespace EmailAgent.Settings;
 
 public sealed class OpenAiSettings
 {

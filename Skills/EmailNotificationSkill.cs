@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Net;
 using System.Net.Mail;
-using EmailAgent.Contracts;
+using EmailAgent.Settings;
 using Microsoft.SemanticKernel;
 
 namespace EmailAgent.Skills;
@@ -33,13 +33,13 @@ public class EmailNotificationSkill
         string body
     )
     {
-        MailMessage mail = new MailMessage();
+        var mail = new MailMessage();
         mail.From = new MailAddress(_smtpClientSettings.UserName);
         mail.To.Add(recipientEmail);
         mail.Subject = subject;
         mail.Body = body;
 
-        SmtpClient smtpClient = new SmtpClient(_smtpClientSettings.Host)
+        var smtpClient = new SmtpClient(_smtpClientSettings.Host)
         {
             Port = _smtpClientSettings.Port,
             Credentials = new NetworkCredential(_smtpClientSettings.UserName, _smtpClientSettings.Password),

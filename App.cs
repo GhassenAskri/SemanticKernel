@@ -1,5 +1,4 @@
-using System.Reflection;
-using EmailAgent.Contracts;
+using EmailAgent.Settings;
 using Microsoft.Extensions.Configuration;
 
 namespace EmailAgent;

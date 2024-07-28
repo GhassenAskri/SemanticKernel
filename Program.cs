@@ -10,10 +10,10 @@ App.Configure();
 var openAi = new OpenAi(App.OpenAiSettings);
 //define send email skill
 var emailNotificationSkill = new EmailNotificationSkill(App.SmtpClientSettings);
-// start chat context management class
-var chat = new Chat();
 // build kernel with send email skill
 var kernel = KernelBuilder.BuildWithSkill(emailNotificationSkill);
+// start chat service
+var chatService = new ChatService();
 
 
 //Interact with user
@@ -21,10 +21,10 @@ while (true)
 {
     var fullMessage = string.Empty;
     Console.Write("User > ");
-    chat.AddUserMessage(Console.ReadLine()!);
+    chatService.AddUserMessage(Console.ReadLine()!);
     try
     {
-        var response = openAi.Ask(chat.Messages, kernel);
+        var response = openAi.Ask(chatService.Messages, kernel);
         Console.Write($"Assistant > ");
         await foreach (var content in response)
         {
@@ -38,5 +38,5 @@ while (true)
     }
 
     Console.WriteLine();
-    chat.AddAssistantMessage(fullMessage);
+    chatService.AddAssistantMessage(fullMessage);
 }

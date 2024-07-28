@@ -2,7 +2,7 @@ using Microsoft.SemanticKernel.ChatCompletion;
 
 namespace EmailAgent.Services;
 
-public class Chat
+public class ChatService
 {
     public ChatHistory Messages { get; } = new(Introduction);
 

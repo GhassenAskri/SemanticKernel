@@ -13,7 +13,7 @@ public class OpenAi
     {
         ChatCompletion = new(
             modelId: "",
-            apiKey: ""
+            apiKey: string.Empty
         );
     }
 

@@ -1,21 +1,17 @@
+using EmailAgent.Contracts;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 
 namespace EmailAgent.Connectors;
 
-public class OpenAi
+public class OpenAi(OpenAiSettings? openAiSettings)
 {
-    private OpenAIChatCompletionService ChatCompletion { get; }
-    
+    private OpenAIChatCompletionService ChatCompletion { get; } = new(
+        modelId: openAiSettings.ModelId,
+        apiKey: openAiSettings.ApiKey
+    );
 
-    public OpenAi()
-    {
-        ChatCompletion = new(
-            modelId: "",
-            apiKey: string.Empty
-        );
-    }
 
     public IAsyncEnumerable<StreamingChatMessageContent> Ask(ChatHistory chatHistory, Kernel kernel)
     {
